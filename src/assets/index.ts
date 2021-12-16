@@ -147,3 +147,4 @@ export {default as GlobalFilter} from './icons/globalFilter.svg';
 export {default as HeartLikes} from './icons/heartLikes.svg';
 export {default as LikIt} from './icons/likIt.svg';
 export {default as LanguageArrow} from './icons/languageArrow.svg';
+export {default as Logo} from './icons/Logo.svg';

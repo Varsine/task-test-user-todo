@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import PaginationComponent from 'react-js-pagination';
 
-import {PrevIcon, NextIcon} from '~/assets';
+import {AlarmIcon} from '~/assets';
 
 import styles from './Pagination.module.scss';
 
@@ -20,8 +20,8 @@ const Pagination: React.FC = () => {
         activeLinkClass={styles.container_active__link}
         linkClass={styles.container__link}
         hideNavigation={true}
-        firstPageText={<NextIcon />}
-        lastPageText={<PrevIcon />}
+        firstPageText={<AlarmIcon />}
+        lastPageText={<AlarmIcon />}
         activePage={activePage}
         itemsCountPerPage={10}
         totalItemsCount={450}

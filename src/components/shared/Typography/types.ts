@@ -1,17 +1,19 @@
+import Typography from './index';
+
 type TypoType =
   | 'Tiny'
   | 'Semi'
   | 'Bold'
-  | 'Semibold'
   | 'Small'
   | 'Large'
   | 'Extra'
   | 'Medium'
-  | 'Regular';
+  | 'Regular'
+  | 'Semibold';
 
-type Variant = 'Text' | 'Heading' | 'Button' | 'Label' | 'Link';
+type Variant = 'Text' | 'Heading' | 'Button' | 'Link';
 
-type Align = ['right', 'left', 'center', 'justify'];
+type Align = 'right' | 'left' | 'center' | 'justify';
 
 export interface ITypographyProps {
   align?: Align;
@@ -20,3 +22,5 @@ export interface ITypographyProps {
   className?: string;
   tagName?: keyof JSX.IntrinsicElements;
 }
+
+export type TypographyTypeof = typeof Typography;

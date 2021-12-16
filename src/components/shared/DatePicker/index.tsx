@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import {RangePicker} from 'react-trip-date';
 import {RangePickerSelectedDays} from 'react-trip-date/dist/rangePicker/rangePicker.type';
 
-import {DownIcon} from '~/assets';
+import {AlarmIcon} from '~/assets';
 import {useOnClickOutside} from '~/hooks';
 
 import styles from './DatePicker.module.scss';
@@ -56,7 +56,7 @@ const DatePicker: FC = () => {
     <div ref={calendarRef} className={styles.wrapper}>
       <div role="button" onClick={datePickerToggler} className={togglerClasses}>
         <p className={styles.header__text}>{selectedDateRange}</p>
-        <DownIcon />
+        <AlarmIcon />
       </div>
       {isOpen && (
         <div className={`${styles.content} calendar__trip`}>

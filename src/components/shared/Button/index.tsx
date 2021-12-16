@@ -1,13 +1,10 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import classNames from 'classnames';
-
-import {RouterService} from '~/services';
 
 import {IButtonProps} from './types';
 import styles from './Button.module.scss';
 
 const Button: React.FC<IButtonProps> = ({
-  route,
   onClick,
   children,
   LeftIcon,
@@ -28,18 +25,12 @@ const Button: React.FC<IButtonProps> = ({
     },
   );
 
-  const handleLinkClick = useCallback(() => {
-    if (route) {
-      RouterService.push(route);
-    }
-  }, [route]);
-
   return (
     <button
       type={type}
       disabled={disabled}
       className={buttonClasses}
-      onClick={route ? handleLinkClick : onClick}>
+      onClick={onClick}>
       {!!LeftIcon && <LeftIcon />}
 
       {children}

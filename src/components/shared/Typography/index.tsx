@@ -16,9 +16,8 @@ const Typography: React.FC<
   variant = 'Text',
   ...rest
 }) => {
-  const alignKey = FontStyles[`text_${align}` as keyof typeof FontStyles];
+  const alignKey = FontStyles[`Text${align}` as keyof typeof FontStyles];
   const fontKey = FontStyles[`${variant}${type}` as keyof typeof FontStyles];
-
   const classes = classNames(alignKey, fontKey, {
     [className]: className,
   });

@@ -1,11 +1,36 @@
 .container {
   &_active {
-    color: $black !important;
     font-weight: bold;
+    animation: activePage 0.5s forwards;
   }
 
   &_disabled {
     opacity: 0.6;
     pointer-events: none;
+    font-weight: 100;
+    font-size: 100%;
+    animation: disabledPage 0.5s forwards;
+  }
+}
+
+@keyframes activePage {
+  0% {
+    font-weight: 100;
+    font-size: 100%;
+  }
+  100% {
+    font-size: 18px;
+    font-weight: 900;
+  }
+}
+
+@keyframes disabledPage {
+  0% {
+    font-size: 18px;
+    font-weight: 900;
+  }
+  100% {
+    font-weight: 100;
+    font-size: 100%;
   }
 }
