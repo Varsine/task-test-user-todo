@@ -1,0 +1,86 @@
+%project_title {
+  font-family: $montserrat_family;
+  font-size: 64px;
+  line-height: 78px;
+}
+
+%category-buttons {
+  font-family: $montserrat_family;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 13px 34px;
+  line-height: 24px;
+}
+
+%film_name {
+  font-family: $montserrat_family;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+%film_info_text {
+  font-family: $montserrat_family;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+%film_date {
+  font-family: $montserrat_family;
+  font-size: 18px;
+  line-height: 22px;
+  color: $red;
+}
+
+%film_likes_views_comments {
+  font-family: $montserrat_family;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+%actor_name {
+  font-family: $montserrat_family;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+%separate_page_film_name {
+  font-family: $montserrat_family;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 44px;
+}
+%separate_page_film_info_description {
+  font-family: $montserrat_family;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+%button-styles {
+  font-family: $montserrat_family;
+  background-color: $light-black;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  border: 1px solid $dark-white;
+  box-sizing: border-box;
+  border-radius: 48px;
+}
+
+%footer_text {
+  font-family: $montserrat_family;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+%search-styling {
+  font-family: $montserrat_family;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}

@@ -1,0 +1,14 @@
+.wrapper {
+  background-color: $black;
+  @extend %flex-center;
+  height: 90px;
+
+  &_content {
+    @extend %flex-center;
+
+    &__text {
+      @extend %footer_text;
+      text-align: center;
+    }
+  }
+}
