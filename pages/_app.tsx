@@ -5,7 +5,7 @@ import '~/styles/index.scss';
 
 import store, {wrapper} from '~/store';
 
-const PornApp: React.FC<AppProps> = ({Component, pageProps}) => (
+const PornApp: React.FC<AppProps> = ({Component, pageProps}: any) => (
   <Provider store={store}>
     <Component {...pageProps} />
   </Provider>

@@ -1,16 +1,19 @@
 import React from 'react';
+import Head from 'next/head';
 import {NextPage} from 'next';
 
-import {Seo} from '~/components';
+import Dashboard from '~/containers/Dashboard';
 
 const HomePage: NextPage = () => {
   return (
-    <Seo title="Home page" metaDescription="Home page description">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga ducimus
-      accusantium quibusdam consequuntur recusandae soluta amet nostrum non,
-      incidunt accusamus commodi tenetur in animi dolorum dolores. Deserunt esse
-      nulla unde!
-    </Seo>
+    <React.Fragment>
+      <Head>
+        <title>Dashboard</title>
+        <meta name="description" content="User dashboard description" />
+        <meta name="viewport" content="width=device-width, user-scalable=no" />
+      </Head>
+      <Dashboard />
+    </React.Fragment>
   );
 };
 

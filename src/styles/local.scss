@@ -77,14 +77,13 @@ summary,
 fieldset,
 blockquote,
 figcaption {
-  color: $white;
-  display: block;
+  color: $light-black;
   font-size: 100%;
 }
 
 body {
   height: 100%;
-  background-color: $light-black;
+  background-color: $white;
   font-family: $montserrat_family;
 }
 
