@@ -3,7 +3,7 @@ import {SubmitHandler, FieldValues} from 'react-hook-form';
 
 import {Route} from '~/constants';
 
-import {InputProps} from '../../Input/types';
+import {IInputProps} from '../Input/types';
 
 export type LabelOptions = {
   firstLink: Route;
@@ -12,9 +12,9 @@ export type LabelOptions = {
   secondLinkText: string;
 };
 
-export type Field = InputProps & {
+export type Field = IInputProps & {
   labelOptions?: LabelOptions;
-  defaultValue?: string | boolean;
+  defaultValue?: string | null | boolean;
 };
 
 export type Form = {

@@ -1,0 +1,57 @@
+.wrapper {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid $white;
+
+  @include breakpoint(tablet) {
+    min-width: 728px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $red;
+    border-radius: 10px;
+    box-shadow: $scroll-box-shadow;
+  }
+
+  th,
+  td {
+    word-break: break-all;
+    max-width: 200px;
+    text-align: center;
+    padding: 16px;
+  }
+
+  th:first-child,
+  td:first-child {
+    text-align: left;
+  }
+
+  td:first-child {
+    font-weight: 600;
+
+    & > a {
+      color: $success !important;
+
+      &:hover {
+        opacity: 0.8;
+        text-decoration: underline !important;
+      }
+    }
+  }
+
+  tr:nth-child(even) {
+    background-color: $white;
+  }
+
+  &__title {
+    &:first-letter {
+      text-transform: capitalize;
+    }
+  }
+}

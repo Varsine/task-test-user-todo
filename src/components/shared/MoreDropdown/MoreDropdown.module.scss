@@ -1,0 +1,35 @@
+.wrapper {
+  position: relative;
+
+  &__content {
+    @extend %flex-center;
+    box-shadow: $box-shadow;
+    flex-direction: column;
+    position: absolute;
+    height: 80px;
+    width: 110px;
+    right: -16px;
+    top: 56px;
+    background-color: $dark-grey;
+    z-index: 10;
+    border-radius: 8px;
+
+    &__icon {
+      cursor: pointer;
+      height: 40px;
+      width: 40px;
+      padding: 8px;
+    }
+  }
+
+  &__more_icon {
+    cursor: pointer;
+    transform: rotate(90deg);
+    width: 20px;
+    height: 40px;
+
+    path {
+      fill: $black;
+    }
+  }
+}

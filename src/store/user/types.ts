@@ -1,12 +1,17 @@
 export type UserInfo = {
-  id: string;
   email: string;
+  phone: string;
   address: string;
   lastName: string;
   firstName: string;
-  phoneNumber: string;
 };
 
 export type UserSliceState = {
-  userInfo: UserInfo | null;
+  userList: UserInfo[];
+  filterUser: UserInfo | null;
+};
+
+export type EditUserProps = {
+  index: number;
+  newValue: UserInfo;
 };

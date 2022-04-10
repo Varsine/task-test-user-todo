@@ -1,0 +1,33 @@
+.wrapper {
+  @extend %flex-align;
+  flex-direction: column;
+
+  &__back_link {
+    position: absolute;
+    top: 16px;
+    left: 24px;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.9;
+    }
+  }
+
+  &__title {
+    @extend %heading_extra;
+    padding: 24px 0;
+    color: $success;
+  }
+
+  &__form {
+    max-width: 700px;
+    width: 100%;
+    padding: 24px;
+
+    &__btn {
+      max-width: 280px;
+      width: 100%;
+    }
+  }
+}

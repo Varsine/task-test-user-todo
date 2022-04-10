@@ -1,0 +1,54 @@
+.wrapper {
+  &__header {
+    @extend %flex-between;
+    position: relative;
+    height: 80px;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &__link {
+    @extend %heading_extra;
+
+    &:hover {
+      opacity: 0.8;
+      text-decoration: underline !important;
+    }
+
+    &_hidden {
+      @include breakpoint(desktop) {
+        display: none;
+      }
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+
+    &__inner {
+      @include breakpoint(tablet) {
+        overflow: scroll !important;
+      }
+
+      &::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $red;
+        border-radius: 10px;
+        box-shadow: $scroll-box-shadow;
+      }
+    }
+  }
+
+  &__no_result {
+    @extend %project_title;
+    color: $white;
+
+    @include breakpoint(tablet) {
+      font-size: 32px;
+    }
+  }
+}

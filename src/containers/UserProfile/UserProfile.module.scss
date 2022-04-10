@@ -1,0 +1,61 @@
+.wrapper {
+  @extend %flex-column;
+
+  &__back_link {
+    position: absolute;
+    top: 16px;
+    left: 24px;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.9;
+    }
+  }
+
+  &__title {
+    @extend %project_title;
+    @extend %flex-align;
+    background-color: $success;
+    max-width: 100%;
+    width: 100%;
+    padding: 50px 20px;
+    color: $white;
+    word-break: break-all;
+    box-shadow: $user-box-shadow;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__content {
+    @extend %flex-column;
+    padding: 24px 20px;
+
+    &__sub_title {
+      @extend %heading_extra;
+      max-width: 100%;
+      width: 100%;
+      color: $black;
+    }
+  }
+
+  &__block {
+    display: flex;
+    padding: 16px;
+  }
+
+  &__text {
+    @extend %heading_small;
+    font-weight: 700;
+    color: $rgba-black;
+    margin-right: 24px;
+  }
+
+  &__sub_text {
+    @extend %heading_small;
+    color: $rgba-black;
+    word-break: break-all;
+  }
+}

@@ -3,21 +3,31 @@
   display: flex;
   padding: 14px 16px;
   border-radius: 8px;
-  color: #1a1b1e;
+  margin: 4px 0;
+  color: $black;
   transition: all 0.1s;
-  border: 1px solid #e4e6eb;
+  border: 1px solid $dark-white;
 
   &::placeholder {
-    color: #84878d;
+    color: $grey_color;
   }
 
   &:hover {
-    border-color: #bec0c4;
+    border-color: $dark-white;
   }
 
   &:active,
   &:focus {
-    border-color: red;
+    border-color: $red;
+  }
+
+  &:valid {
+    border-color: $success;
+  }
+
+  &__label {
+    color: $light-black !important;
+    margin: 6px 0;
   }
 
   &_with_icon {
@@ -33,20 +43,20 @@
     }
 
     &_disabled {
-      background-color: #f5f7fa;
+      background-color: $dark-white;
     }
   }
 
   &__label {
     font-weight: 600;
-    color: #84878d;
+    color: $grey_color;
   }
 
   &__error {
-    border-color: #d63842 !important;
+    border-color: $error-color !important;
 
     &__text {
-      color: #d63842;
+      color: $error-color;
     }
   }
 

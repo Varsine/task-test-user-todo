@@ -7,23 +7,11 @@ import styles from './Button.module.scss';
 const Button: React.FC<IButtonProps> = ({
   onClick,
   children,
-  LeftIcon,
   disabled,
   className = '',
-  size = 'medium',
   type = 'button',
-  variant = 'primary',
 }) => {
-  const buttonClasses = classNames(
-    styles.container,
-    styles[`container_${size}`],
-    styles[`container_${variant}`],
-
-    {
-      [className]: className,
-      [styles.container__left]: !!LeftIcon,
-    },
-  );
+  const buttonClasses = classNames(styles.container, className);
 
   return (
     <button
@@ -31,8 +19,6 @@ const Button: React.FC<IButtonProps> = ({
       disabled={disabled}
       className={buttonClasses}
       onClick={onClick}>
-      {!!LeftIcon && <LeftIcon />}
-
       {children}
     </button>
   );

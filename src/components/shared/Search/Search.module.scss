@@ -1,0 +1,116 @@
+.search {
+  @extend %search-styling;
+  border-radius: 50px !important;
+  max-width: 70%;
+  width: 100%;
+  color: $white !important;
+  padding: 8px 37px 8px 24px !important;
+  border: 1px solid $white;
+  background-color: transparent;
+
+  @include breakpoint(tablet) {
+    max-width: 100%;
+  }
+}
+
+.wrapper {
+  position: absolute;
+  left: 100%;
+  right: 0;
+  transition: 0.5s all ease;
+
+  &_expanded {
+    left: 30%;
+    transition: 0.5s all ease;
+
+    @include breakpoint(desktop) {
+      left: 50%;
+    }
+
+    @include breakpoint(tablet) {
+      left: 0;
+    }
+  }
+
+  &__icon {
+    cursor: pointer;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 16px;
+    padding: 12px;
+    cursor: pointer !important;
+    transition: 0.5s all ease;
+  }
+
+  &__container {
+    &__back {
+      display: none;
+      position: absolute;
+      left: 0;
+      width: 50px !important;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.4s;
+
+      @include breakpoint(desktop) {
+        display: block;
+      }
+
+      &_expand {
+        visibility: visible;
+        opacity: 1;
+        cursor: pointer;
+        transition: all 0.6s;
+      }
+    }
+
+    &__search {
+      @extend %search-styling;
+      max-width: 24px;
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      border-radius: 16px !important;
+      padding: 0 !important;
+      border: 1px solid transparent;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.5s all ease;
+
+      &:hover {
+        border-color: transparent !important;
+      }
+
+      &:focus {
+        border-color: transparent !important;
+      }
+
+      &_expanded {
+        max-width: 100%;
+        border: 1px solid $white;
+        padding: 13px 58px 13px 24px !important;
+        visibility: visible;
+        opacity: 1;
+        transition: 0.5s all ease;
+
+        @include breakpoint(desktop) {
+          padding-right: 66px;
+        }
+
+        @include breakpoint(tablet) {
+          max-width: 100%;
+          padding: 12px 48px 12px 16px !important;
+        }
+
+        &:hover {
+          border-color: $red !important;
+        }
+
+        &:focus {
+          border-color: $red !important;
+        }
+      }
+    }
+  }
+}

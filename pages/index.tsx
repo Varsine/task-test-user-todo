@@ -4,17 +4,15 @@ import {NextPage} from 'next';
 
 import Dashboard from '~/containers/Dashboard';
 
-const HomePage: NextPage = () => {
-  return (
-    <React.Fragment>
-      <Head>
-        <title>Dashboard</title>
-        <meta name="description" content="User dashboard description" />
-        <meta name="viewport" content="width=device-width, user-scalable=no" />
-      </Head>
-      <Dashboard />
-    </React.Fragment>
-  );
-};
+const HomePage: NextPage = () => (
+  <React.Fragment>
+    <Head>
+      <title>Dashboard</title>
+      <meta name="description" content="User dashboard description" />
+      <meta name="viewport" content="width=device-width, user-scalable=no" />
+    </Head>
+    <Dashboard />
+  </React.Fragment>
+);
 
 export default HomePage;

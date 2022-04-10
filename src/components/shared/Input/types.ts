@@ -1,44 +1,31 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 
 export type InputType =
-  | 'button'
-  | 'checkbox'
-  | 'color'
-  | 'date'
-  | 'datetime-local'
   | 'email'
-  | 'file'
-  | 'hidden'
-  | 'image'
-  | 'month'
   | 'number'
   | 'password'
-  | 'radio'
-  | 'range'
-  | 'reset'
   | 'search'
-  | 'submit'
   | 'tel'
-  | 'text'
-  | 'time'
-  | 'url'
-  | 'week';
+  | 'text';
 
 export interface IInputProps {
-  value?: any;
   name: string;
-  label?: string;
-  error?: string;
   type?: InputType;
-  className?: string;
+  label?: string;
+  value?: string | number;
+  error?: string;
+  onBlur?: () => void;
+  onFocus?: () => void;
+  onClick?: () => void;
   disabled?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  rightIcon?: ReactElement<any, any> | null;
+  className?: string;
+  wrapperRef?: React.ForwardedRef<HTMLDivElement>;
   placeholder?: string;
+  toggleHandle?:
+    | React.Dispatch<React.SetStateAction<boolean>>
+    | React.MouseEventHandler<SVGSVGElement>;
   innerClassName?: string;
   labelClassName?: string;
-  onChange?: (event: React.ChangeEvent) => void;
-  RightIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
-  RightToggledIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
-  onFocus?: () => void;
-  onBlur?: () => void;
-  onClick?: () => void;
 }

@@ -1,7 +1,5 @@
-import React, {forwardRef, useMemo, useState, useCallback} from 'react';
+import React, {forwardRef} from 'react';
 import classNames from 'classnames';
-
-import Typography from '../Typography';
 
 import {IInputProps} from './types';
 import styles from './Input.module.scss';
@@ -9,86 +7,57 @@ import styles from './Input.module.scss';
 const Input = forwardRef<any, IInputProps>(
   (
     {
+      type = 'text',
       name,
       label,
       error,
+      onChange,
       disabled,
-      RightIcon,
-      RightToggledIcon,
-      placeholder,
-      type = 'text',
       className = '',
+      rightIcon,
+      wrapperRef,
+      placeholder,
       innerClassName = '',
       labelClassName = '',
       ...rest
     },
     ref,
   ) => {
-    const inputClasses = classNames(styles.container, {
-      [className]: className,
+    const labelClasses = classNames(styles.container__label, labelClassName);
+
+    const inputClasses = classNames(styles.container, className, {
       [styles.container__error]: !!error,
-      [styles.container_with_icon]: !!RightIcon,
+      [styles.container_with_icon]: !!rightIcon,
     });
 
-    const inputInnerClasses = classNames(styles.container__inner, {
-      [innerClassName]: innerClassName,
-      [styles.container__inner__error]: !!error,
-      [styles.container__inner_disabled]: disabled,
-    });
-
-    const labelClasses = classNames(styles.container__label, {
-      [labelClassName]: labelClassName,
-    });
-
-    const [isToggledIcon, setIsToggledIcon] = useState(false);
-
-    const togglePasswordVisiblity = useCallback(() => {
-      if (RightToggledIcon) {
-        setIsToggledIcon(!isToggledIcon);
-      }
-    }, [RightToggledIcon, isToggledIcon]);
-
-    const RightIconComponent = useMemo(
-      () =>
-        (RightIcon && RightToggledIcon
-          ? isToggledIcon
-            ? RightToggledIcon
-            : RightIcon
-          : RightIcon) as React.FC<React.SVGProps<SVGSVGElement>>,
-      [RightIcon, RightToggledIcon, isToggledIcon],
+    const inputInnerClasses = classNames(
+      styles.container__inner,
+      innerClassName,
+      {
+        [styles.container__inner__error]: !!error,
+        [styles.container__inner_disabled]: disabled,
+      },
     );
 
     return (
       <label htmlFor={name} className={labelClasses}>
         {label}
-        <div className={inputInnerClasses}>
+        <div ref={wrapperRef} className={inputInnerClasses}>
           <input
             {...rest}
             id={name}
             ref={ref}
             name={name}
-            autoComplete="off"
+            type={type}
+            onChange={onChange}
             disabled={disabled}
             className={inputClasses}
             placeholder={placeholder}
-            type={isToggledIcon ? 'text' : type}
+            autoComplete="off"
           />
-          {RightIcon && (
-            <RightIconComponent
-              role="button"
-              className={styles.container__right_icon}
-              onClick={togglePasswordVisiblity}
-              style={{
-                cursor: RightToggledIcon ? 'pointer' : 'auto',
-              }}
-            />
-          )}
+          {rightIcon && rightIcon}
         </div>
-        {error && (
-          <Typography type="Small" className={styles.container__error__text}>
-            {error}
-          </Typography>
-        )}
+        {error && <p className={styles.container__error__text}>{error}</p>}
       </label>
     );
   },

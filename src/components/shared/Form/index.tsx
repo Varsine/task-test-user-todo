@@ -1,18 +1,16 @@
 import React, {
+  useMemo,
   forwardRef,
   useCallback,
   useImperativeHandle,
-  useMemo,
 } from 'react';
 import classNames from 'classnames';
-import {yupResolver} from '@hookform/resolvers/yup';
-import {useForm, Controller, DefaultValues} from 'react-hook-form';
 import {isUndefined} from 'lodash';
+import {yupResolver} from '@hookform/resolvers/yup';
+import {useForm, DefaultValues} from 'react-hook-form';
 
-import Input from '../../Input';
-import Button from '../../Button';
-import CheckboxRow from '../../CheckboxRow';
-import Verification from '../../Verification';
+import Input from '../Input';
+import Button from '../Button';
 
 import {IFormProps} from './types';
 import styles from './Form.module.scss';
@@ -48,7 +46,6 @@ const Form = forwardRef<any, IFormProps>(
     );
 
     const {
-      control,
       register,
       setFocus,
       handleSubmit,
@@ -60,17 +57,18 @@ const Form = forwardRef<any, IFormProps>(
       resolver: yupResolver(schema),
     });
 
-    const formClasses = classNames(styles.container, {
-      [className]: className,
-    });
+    const formClasses = classNames(styles.container, className);
 
-    const disabledButtonClasses = classNames(styles.container__button, {
-      [styles.container__button_disabled]: !isValid,
-      [addFormBtnClasses]: addFormBtnClasses,
-    });
+    const disabledButtonClasses = classNames(
+      styles.container__button,
+      addFormBtnClasses,
+      {
+        [styles.container__button_disabled]: !isValid,
+      },
+    );
 
     const renderField = useCallback(
-      (name, {labelOptions, ...rest}) => {
+      (name, {...rest}) => {
         const commonProps = {
           key: name,
           ...rest,
@@ -78,48 +76,18 @@ const Form = forwardRef<any, IFormProps>(
           error: errors[name]?.message,
         };
 
-        switch (rest.type) {
-          case 'checkbox':
-            return (
-              <CheckboxRow
-                key={name}
-                inputProps={commonProps}
-                labelOptions={labelOptions}
-              />
-            );
-          case 'verification':
-            return (
-              <Controller
-                name={name}
-                key={name}
-                control={control}
-                {...rest}
-                render={(props) => (
-                  <Verification
-                    key={name}
-                    inputProps={commonProps}
-                    value={props.field.value}
-                    onClick={props.field.onChange}
-                  />
-                )}
-              />
-            );
-
-          default:
-            return (
-              <Input
-                labelText={labelText}
-                className={inputClassName}
-                labelClassName={labelClassName}
-                innerClassName={innerClassName}
-                {...commonProps}
-              />
-            );
-        }
+        return (
+          <Input
+            label={labelText}
+            className={inputClassName}
+            labelClassName={labelClassName}
+            innerClassName={innerClassName}
+            {...commonProps}
+          />
+        );
       },
       [
         errors,
-        control,
         register,
         labelText,
         inputClassName,
@@ -152,7 +120,6 @@ const Form = forwardRef<any, IFormProps>(
         onSubmit={handleSubmit(onSubmit)}>
         {renderFields()}
         <Button
-          size="large"
           type="submit"
           disabled={!isValid}
           onClick={formHandler}
